@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "dir-catalog"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "dir_catalog", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.7"
+lxml = "^5.1.0"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["dir_catalog"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+coverage = {extras = ["toml"], version = "^7.4.1"}
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+dir-catalog = "dir_catalog.console:main"
